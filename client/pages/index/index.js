@@ -9,13 +9,16 @@ import _zimv from "./../../assets/image/zimv.jpeg";
 import style from "./index.less";
 //注意page组件继承Base
 export default class Index extends Base {
+  //注意看看：base关于getInitialProps的注释
+  static state = {
+    desc: "Hello world~"
+  };
   static async getInitialProps() {
     //替代componentWillMount
     let data;
     const res = await request.get("/api/getData");
     if (!res.errCode) data = res.data;
     return {
-      desc: "Hello world~",
       data
     };
   }
@@ -36,7 +39,7 @@ export default class Index extends Base {
           <span dangerouslySetInnerHTML={{ __html: _fire }} />
           {data}
         </div>
-        <div onClick={this.goList.bind(this)}>click to go List</div>
+        <div onClick={this.goList.bind(this)} className="forward">click to go List</div>
         <Intro />
         {ProcessSsrStyle(style)}
       </div>
