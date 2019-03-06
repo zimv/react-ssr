@@ -1,10 +1,12 @@
 # react-ssr
-koa2 + react
-support for https://dashiren.cn
+use koa2 + react  
+support for https://dashiren.cn 
 
-devlopment: npm run dev
+## Usage
+### devlopment:  
+    npm run dev
 
-production: 
-    npm run build
-    npm run prod
-need to npm install -g pm2
+### production: 
+  npm run build  
+  npm run prod  
+  need to npm install -g pm2
