@@ -9,22 +9,22 @@ export default class Base extends React.Component {
   constructor(props) {
     super(props);
 
-    //如果是首次渲染，会拿到ssrData
-    if (props.ssrData) {
+    //如果定义了静态state,按照生命周期，state应该优先于ssrData
+    if (this.constructor.state) {
       this.state = {
-        ...props.ssrData
+        ...this.constructor.state
       };
     }
-    //如果定义了静态state
-    if (this.constructor.state) {
-      if(this.state){
+    //如果是首次渲染，会拿到ssrData
+    if (props.ssrData) {
+      if (this.state) {
         this.state = {
           ...this.state,
-          ...this.constructor.state
+          ...props.ssrData
         };
-      }else{
+      } else {
         this.state = {
-          ...this.constructor.state
+          ...props.ssrData
         };
       }
     }
