@@ -10,3 +10,6 @@ support for https://dashiren.cn
   npm run build  
   npm run prod  
   need to npm install -g pm2
+
+## blog
+https://www.cnblogs.com/1wen/p/10282786.html

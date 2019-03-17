@@ -50,7 +50,7 @@ const routerRegister = (router, env) => {
       //webpack的所有模块引用都会一个个在需要的时候载入__webpack_require__，并存到缓存
       //resolve alias应用别名以后，因为我们也需要对这个pages文件作为外部扩展不bundle到server模块，所以要把这个别名加到externals规则里，但又会导致bundle的require别名
       //没有被解析，所以这里直接写运行时的cwd对应pages路径，然后在externals里排除
-      //__non_webpack_require__这个方法可以跳过webpack打包，最终转化为bundle中，require
+      //__non_webpack_require__这个方法可以跳过webpack打包，编译后在bundle中是require()方法
       const path = require("path");
       const cwd = process.cwd();
       delete __non_webpack_require__.cache[
@@ -85,7 +85,7 @@ const routerRegister = (router, env) => {
         indexHtml = indexHtml.replace("/*rem*/", rem);
         indexHtml = indexHtml.replace("/*title*/", component.title);
         indexHtml = indexHtml.replace(
-          "/*ssrInitData*/",
+          "/*getInitialProps*/",
           `window.ssrData=${JSON.stringify(data)};window.ssrPath='${ctx.path}'`
         );
         indexHtml = indexHtml.replace("/*app*/", bundles.app);

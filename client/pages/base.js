@@ -30,8 +30,8 @@ export default class Base extends React.Component {
     }
   }
   async componentWillMount() {
+    //客户端运行时
     if (typeof window != "undefined") {
-      //客户端运行时
       if (!this.props.ssrData) {
         //非首次渲染，也就是单页面路由状态改变，直接调用静态方法
         //我们不确定有没有异步代码，如果getInitialProps直接返回一个初始化state，这样会造成本身应该同步执行的，因为await没有同步执行，造成状态混乱
