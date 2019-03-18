@@ -13,8 +13,8 @@ export default class Index extends Base {
   static state = {
     desc: "Hello world~"
   };
+  //替代componentWillMount
   static async getInitialProps() {
-    //替代componentWillMount
     let data;
     const res = await request.get("/api/getData");
     if (!res.errCode) data = res.data;
