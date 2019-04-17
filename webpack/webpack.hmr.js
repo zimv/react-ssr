@@ -20,7 +20,7 @@ const Hmr = () => {
     },
     port: port, //客户端去请求的端口，如果不设置，默认是当前页面的端口
     watchOptions: {
-      ignored: ["node_modules"],
+      ignored: /node_modules/,//["node_modules"]如果数组length为1，似乎没效果，还是会监听node_modules.甚至这样写["node_modules",""]才起作用
       aggregateTimeout: 1000 //优化，尽量保证后端重新打包先执行完
     }
   };
