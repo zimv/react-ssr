@@ -2,20 +2,20 @@
 use koa2 + react  
 support for https://dashiren.cn 
 
-## react hooks version
+## React hooks version
 you can checkout the "hooks" of branch, it use the react hooks.
 
 ## Usage
-### devlopment:  
+### Devlopment:  
     npm run dev
 
-### production: 
+### Production: 
   npm run build  
   npm run prod  
   need to npm install -g pm2
 
-## blog
+## Blog
 https://www.cnblogs.com/1wen/p/10282786.html
 
-## hooks version blog
+## Hooks version blog
 https://www.cnblogs.com/1wen/p/10600816.html 
